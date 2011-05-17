@@ -9,7 +9,7 @@
 <% @buses.each do |bus| %>
     <div class="bus status">
       <h2><%= bus.name %></h2>
-      <% bus.times each do |time| %>
+      <% bus.bus_times.each do |time| %>
           <h3><%= time.minutes %></h3>
       <% end %>
     </div>
