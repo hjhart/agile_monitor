@@ -2,7 +2,14 @@
 <% @projects.each do |project| %>
     <div class="project status <%#= project.current_status %>">
       <h2><%= project.name %></h2>
-      <span>Last built: project.last_built </span>
+      <% if project.builds.present? %>
+          <ul>
+            <% project.builds.each do |build| %>
+                <li><%= build.status %> - <%= build.created_at %></li>
+            <% end %>
+          </ul>
+    <% end %>
+      <span>Last built: <%= ((Time.now - project.builds.last.created_at).to_i / 60) %> minutes ago</span>
     </div>
 <% end %>
 
