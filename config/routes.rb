@@ -1,4 +1,6 @@
 AgileMonitor::Application.routes.draw do
+  resources :buses
+
   resources :projects
 
   # The priority is based upon order of creation:
