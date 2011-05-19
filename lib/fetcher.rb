@@ -1,15 +1,30 @@
 class Fetcher
   # For debugging purposes when there is no internet.
-  # url = '/Volumes/Macintosh HD/Users/jhart/workspace/agile_monitor/test/fixtures/XmlStatusReport.aspx'
-  # doc = REXML::Document.new(File.open(url))
 
+  def initialize(debug=true)
+    @debug = debug
+  end
+
+  def test_xml_file
+    File.open(File.join(Rails.root, 'test', 'fixtures', 'XmlStatusReport.aspx'))
+  end
+
+  def xml_document(url)
+    xml_file = @debug ? test_xml_file : Net::HTTP.get(URI.parse(url))
+    REXML::Document.new(xml_file)
+  end
+#  doc = REXML::Document.new(xml)
+#  doc.elements.each("Projects/Project") do |proj|
+
+  def get_project_listing(url=nil)
+    project_names = []
+    xml_document(url).elements.each("Projects/Project") { |proj| project_names << proj.attributes["name"]}
+    project_names
+  end
 
   def update_project_status(project_id)
     project = Project.find(project_id)
-    url = 'http://rpx-ci.rpxcorp.local:3333/XmlStatusReport.aspx'
-    xml = Net::HTTP.get(URI.parse(url))
-    doc = REXML::Document.new(xml)
-    doc.elements.each("Projects/Project") do |proj|
+    xml_document(project.feed_url).elements.each("Projects/Project") do |proj|
       attributes = proj.attributes
       build_label = attributes["lastBuildLabel"]
 
