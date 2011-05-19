@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517004638) do
+ActiveRecord::Schema.define(:version => 20110519060337) do
 
   create_table "builds", :force => true do |t|
     t.integer  "project_id"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 20110517004638) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "label"
+    t.datetime "build_time"
+    t.string   "last_build_status"
   end
 
   create_table "bus_times", :force => true do |t|
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20110517004638) do
     t.string   "direction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "projects", :force => true do |t|
