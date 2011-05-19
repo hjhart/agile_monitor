@@ -1,5 +1,4 @@
 class Fetcher
-  # TODO: Complete this function. Keep in mind there may be a gem to parse out CC feeds.
   # For debugging purposes when there is no internet.
   # url = '/Volumes/Macintosh HD/Users/jhart/workspace/agile_monitor/test/fixtures/XmlStatusReport.aspx'
   # doc = REXML::Document.new(File.open(url))
