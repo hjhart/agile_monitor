@@ -7,7 +7,7 @@
       <% if project.builds.present? %>
           <ul>
             <% project.builds.each do |build| %>
-                <li><%= build.status %> - <%= build.last_build_status %> - <%#= build.build_time %></li>
+                <li><%= build.status %> - <%= build.last_build_status %> - <%= build.build_time %></li>
             <% end %>
           </ul>
       <% end %>

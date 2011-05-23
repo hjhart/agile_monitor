@@ -1,5 +1,21 @@
 class Fetcher
   # For debugging purposes when there is no internet.
+  @queue = :fetcher
+
+  def self.perform(klass_name, id)
+    f = Fetcher.new(false)
+    case klass_name
+      when "Project"
+        puts "Fetching project status w/ ID #{id}"
+        f.update_project_status(id)
+      when "Bus"
+        puts "Fetching Bus Times w/ ID #{id}"
+        f.update_bus_times(id)
+      else
+        puts "Unrecognized class #{klass} w/ ID #{id}"
+    end
+  end
+
 
   def initialize(debug=true)
     @debug = debug
