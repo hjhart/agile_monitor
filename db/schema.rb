@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519060337) do
+ActiveRecord::Schema.define(:version => 20110519222822) do
 
   create_table "builds", :force => true do |t|
     t.integer  "project_id"
@@ -43,11 +43,10 @@ ActiveRecord::Schema.define(:version => 20110519060337) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "feed_url"
-    t.string   "tracker_url"
-    t.string   "tracker_api_key"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "label"
   end
 
 end

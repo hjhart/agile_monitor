@@ -30,7 +30,7 @@ class Fetcher
 
       if project.name == attributes["name"]
         puts "Project Name match: #{project.name} ==? #{attributes["name"]}"
-        existing_build = Build.find_by_label(build_label)
+        existing_build = project.builds.find_by_label(build_label)
         if existing_build
           puts "Build exists"
           if(existing_build.status != convert_activity(attributes["activity"]))

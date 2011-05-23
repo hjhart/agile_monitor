@@ -8,11 +8,14 @@
       <% if project.builds.present? %>
           <ul>
             <% project.builds.each do |build| %>
-                <li><%= build.status %> - <%= build.last_build_status %> - <%= build.build_time %></li>
+                <li><%= build.status %> - <%= build.last_build_status %> - <%#= build.build_time %></li>
             <% end %>
           </ul>
-    <% end %>
-      <span>Last built: <%= ((Time.now - project.builds.last.build_time).to_i / 60) %> minutes ago</span>
+      <% end %>
+      <% if project.builds.present? %>
+          <span>Last built: <%= ((Time.now - project.builds.last.build_time).to_i / 60) %> minutes ago</span>
+      <% end %>
+
     </div>
 <% end %>
 

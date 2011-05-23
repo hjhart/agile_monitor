@@ -2,7 +2,7 @@
 
 <p>
   <b>Name:</b>
-  <%= @project.name %>
+  <%= @project.label %>
 </p>
 
 <p>
@@ -11,15 +11,9 @@
 </p>
 
 <p>
-  <b>Tracker url:</b>
-  <%= @project.tracker_url %>
+  <b>Project Name (in CI):</b>
+  <%= @project.name %>
 </p>
-
-<p>
-  <b>Tracker api key:</b>
-  <%= @project.tracker_api_key %>
-</p>
-
 <p>
   <b>Active:</b>
   <%= @project.active %>

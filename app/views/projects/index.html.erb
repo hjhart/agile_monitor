@@ -2,10 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Label</th>
     <th>Feed url</th>
-    <th>Tracker url</th>
-    <th>Tracker api key</th>
+    <th>Name</th>
     <th>Active</th>
     <th></th>
     <th></th>
@@ -14,10 +13,9 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.name %></td>
+    <td><%= project.label %></td>
     <td><%= project.feed_url %></td>
-    <td><%= project.tracker_url %></td>
-    <td><%= project.tracker_api_key %></td>
+    <td><%= project.name %></td>
     <td><%= project.active %></td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>

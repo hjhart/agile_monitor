@@ -1,37 +1,38 @@
 <%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+    <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @project.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :label %>
+      <br/>
+      <%= f.text_field :label %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :feed_url %><br />
-    <%= f.text_field :feed_url %>
-  </div>
-  <div class="field">
-    <%= f.label :tracker_url %><br />
-    <%= f.text_field :tracker_url %>
-  </div>
-  <div class="field">
-    <%= f.label :tracker_api_key %><br />
-    <%= f.text_field :tracker_api_key %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :feed_url %>
+      <br/>
+      <%= f.text_field :feed_url %>
+      <%= submit_tag "Get Feed", :name => "get_feeds" %>
+    </div>
+    <div class="field">
+      <%= f.label :name %>
+      <br/>
+      <%= f.select(:name, ['Enter your feed URL to select project'], {}, :disabled => true) %>
+    </div>
+    <div class="field">
+      <%= f.label :active %>
+      <br/>
+      <%= f.check_box :active %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

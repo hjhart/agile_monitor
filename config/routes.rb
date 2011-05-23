@@ -1,6 +1,7 @@
 AgileMonitor::Application.routes.draw do
   resources :buses
   resources :projects
+  match 'ci/names.:format' => 'ci_projects#get_names'
   root :to => "welcome#index"
 
   # The priority is based upon order of creation:
