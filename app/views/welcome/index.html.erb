@@ -1,5 +1,4 @@
 <%# TODO: Auto page refresh %>
-<%# TODO: Fix nonsense like Last build 8298 minutes ago. %>
 <%# TODO: Skin it, make it pretty! %>
 <h1>Agile Monitor</h1>
 <% @projects.each do |project| %>
@@ -13,7 +12,7 @@
           </ul>
       <% end %>
       <% if project.builds.present? %>
-          <span>Last built: <%= ((Time.now - project.builds.last.build_time).to_i / 60) %> minutes ago</span>
+          <span>Last built: <%= time_ago_in_words(project.builds.last.build_time) %> ago</span>
       <% end %>
 
     </div>
