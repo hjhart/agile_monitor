@@ -1,28 +1,25 @@
-<%# TODO: Auto page refresh %>
 <%# TODO: Skin it, make it pretty! %>
 <h1>Agile Monitor</h1>
+<div class="module projects">
+<h2>Projects</h2>
 <% @projects.each do |project| %>
-    <div class="project status <%#= project.current_status %>">
-      <h2><%= project.name %></h2>
+    <div class="project status <%= project.builds.last.status %> <%= project.builds.last.last_build_status %>">
       <% if project.builds.present? %>
-          <ul>
-            <% project.builds.each do |build| %>
-                <li><%= build.status %> - <%= build.last_build_status %> - <%= build.build_time %></li>
-            <% end %>
-          </ul>
+      <h3><%= project.name %></h3>
+      <span>Last built: <%= time_ago_in_words(project.builds.last.build_time) %> ago</span>
       <% end %>
-      <% if project.builds.present? %>
-          <span>Last built: <%= time_ago_in_words(project.builds.last.build_time) %> ago</span>
-      <% end %>
-
     </div>
 <% end %>
+</div>
+
+<div class="module buses">
+<h2>Buses</h2>
 
 <% @buses.each do |bus| %>
     <div class="bus status">
-      <h2><%= bus.name %></h2>
-      <% bus.bus_times.each do |time| %>
-          <h3><%= time.minutes %></h3>
-      <% end %>
+      <h2><%= bus.name %></h3>
+      <h3><%= bus.bus_times.size == 0 ? "No predicted times." : bus.bus_times.map(&:minutes).join(", ") %></h3>
     </div>
 <% end %>
+</div>
+

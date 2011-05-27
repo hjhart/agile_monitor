@@ -80,6 +80,7 @@ GEM
     rspec-mocks (2.5.0)
     rufus-scheduler (2.0.9)
       tzinfo (>= 0.3.23)
+    sass (3.1.1)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -103,4 +104,5 @@ DEPENDENCIES
   resque (= 1.16.1)
   rspec
   rufus-scheduler (= 2.0.9)
+  sass (= 3.1.1)
   sqlite3-ruby

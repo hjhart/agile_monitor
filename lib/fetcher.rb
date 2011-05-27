@@ -1,5 +1,7 @@
 class Fetcher
   # For debugging purposes when there is no internet.
+  # TODO: Multiple polls in one get for NextMuni (upgrade the gem?)
+  # TODO: If nothing is returned by NextMuni, delete all BusTimes
   @queue = :fetcher
 
   def self.perform(klass_name, id)
@@ -95,6 +97,8 @@ class Fetcher
       times.each do |bus_time|
         BusTime.create :bus => @bus, :minutes => bus_time
       end
+    else
+      @bus.bus_times.delete_all
     end
   end
 end

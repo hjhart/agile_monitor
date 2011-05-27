@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'rufus-scheduler', '2.0.9'
 gem 'resque', '1.16.1'
+gem 'sass', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
