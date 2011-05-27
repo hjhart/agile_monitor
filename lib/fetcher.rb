@@ -28,6 +28,7 @@ class Fetcher
   end
 
   def xml_document(url)
+#    TODO: Rescue gracefully from Net:HTTP failure
     xml_file = @debug ? test_xml_file : Net::HTTP.get(URI.parse(url))
     REXML::Document.new(xml_file)
   end
