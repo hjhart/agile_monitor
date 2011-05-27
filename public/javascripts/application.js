@@ -1,4 +1,10 @@
 $(function() {
+    $('body.welcome.index').ready(function() {
+        setTimeout(function() {
+            window.location.reload(true);
+        }, 3000)
+    })
+
     $('input[name=get_feeds]').click(function(e) {
         e.preventDefault();
         data = {}
