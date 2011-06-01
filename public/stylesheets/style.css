@@ -1,0 +1,30 @@
+/* style.scss */
+/* style.scss */
+.module {
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-color: black;
+  border-width: 2px;
+  clear: both;
+  margin: 40px 0px; }
+
+.welcome h1, .welcome h2 {
+  font-family: "Helvetica Neue", "Helvetica", "Arial";
+  font-weight: lighter; }
+.welcome .status {
+  text-align: center;
+  float: left;
+  margin-right: 25px;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  width: 150px;
+  height: 150px;
+  padding: 10px; }
+.welcome .project h2 {
+  font-weight: bold; }
+.welcome .project.Success {
+  background-color: #96d996; }
+.welcome .bus {
+  background-color: #c7f7ff; }
